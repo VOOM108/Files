@@ -248,7 +248,7 @@ namespace Files.Filesystem.StorageItems
                         string winPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(ContainerPath, DecodeEntryName(entry, ZipEncoding)));
                         if (winPath.StartsWith(Path.WithEnding("\\"), StringComparison.Ordinal)) // Child of self
                         {
-                            var split = winPath.Substring(Path.Length).Split(new[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+                            var split = winPath.Substring(Path.Length).Split('\\', StringSplitOptions.RemoveEmptyEntries);
                             if (split.Length > 0)
                             {
                                 if (entry.IsFolder || split.Length > 1) // Not all folders have a ZipEntry
