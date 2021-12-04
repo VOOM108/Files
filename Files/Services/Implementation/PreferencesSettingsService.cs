@@ -31,6 +31,7 @@ namespace Files.Services.Implementation
                 case nameof(ContinueLastSessionOnStartUp):
                 case nameof(OpenNewTabOnStartup):
                 case nameof(AlwaysOpenNewInstance):
+                case nameof(OpenArchivesInFiles):
                     Microsoft.AppCenter.Analytics.Analytics.TrackEvent($"{e.settingName} {e.newValue}");
                     break;
             }
@@ -149,6 +150,12 @@ namespace Files.Services.Implementation
         public List<string> LastSessionTabList
         {
             get => Get<List<string>>(null);
+            set => Set(value);
+        }
+
+        public bool OpenArchivesInFiles
+        {
+            get => Get(true);
             set => Set(value);
         }
     }
